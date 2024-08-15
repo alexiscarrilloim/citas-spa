@@ -75,3 +75,12 @@ Route::put('/admin/empleados/{id}', [App\Http\Controllers\EmpleadoController::cl
 Route::get('/admin/empleados/{id}/confirm-delete', [App\Http\Controllers\EmpleadoController::class, 'confirmDelete'])->name('admin.empleados.confirm-delete')->middleware('auth');
 Route::delete('/admin/empleados/{id}', [App\Http\Controllers\EmpleadoController::class, 'destroy'])->name('admin.empleados.destroy') ->middleware('auth');
 
+//Rutas para el admin = horarios
+Route::get('/admin/horarios', [App\Http\Controllers\HorarioController::class, 'index'])->name('admin.horarios.index') ->middleware('auth');
+Route::get('/admin/horarios/create', [App\Http\Controllers\HorarioController::class, 'create'])->name('admin.horarios.create') ->middleware('auth');
+Route::post('/admin/horarios/create', [App\Http\Controllers\HorarioController::class, 'store'])->name('admin.empleados.store') ->middleware('auth');
+Route::get('/admin/horarios/{id}', [App\Http\Controllers\HorarioController::class, 'show'])->name('admin.horarios.show') ->middleware('auth');
+Route::get('/admin/horarios/{id}/edit', [App\Http\Controllers\HorarioController::class, 'edit'])->name('admin.horarios.edit') ->middleware('auth');
+Route::put('/admin/horarios/{id}', [App\Http\Controllers\HorarioController::class, 'update'])->name('admin.horarios.update') ->middleware('auth');
+Route::get('/admin/horarios/{id}/confirm-delete', [App\Http\Controllers\HorarioController::class, 'confirmDelete'])->name('admin.horarios.confirm-delete')->middleware('auth');
+Route::delete('/admin/horarios/{id}', [App\Http\Controllers\HorarioController::class, 'destroy'])->name('admin.horarios.destroy') ->middleware('auth');
