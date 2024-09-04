@@ -18,4 +18,9 @@ class Sucursal extends Model
     public function horarios(){
         return $this->hasMany(Horario::class); //Relacion sucursal-empleado, una sucursal tiene varios horarios
     }
+
+    public function servicios()
+    {
+        return $this->belongsToMany(Servicio::class, 'sucursal_servicio');
+    }
 }

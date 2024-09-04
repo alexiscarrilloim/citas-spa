@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Configuracione;
 use App\Models\Empleado;
 use App\Models\User;
+use Barryvdh\Snappy\Facades\SnappyPdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use illuminate\Support\Facades\Auth;
 
 class EmpleadoController extends Controller
 {
@@ -55,6 +58,8 @@ class EmpleadoController extends Controller
         $empleado->apellidos = $request->apellidos;
         $empleado->telefono = $request->telefono;
         $empleado->save();
+
+        $usuario->assignRole('empleado');
 
         return redirect()->route('admin.empleados.index')
                 ->with('mensaje','Se registró al nuevo empleado de forma correcta')
@@ -139,5 +144,25 @@ class EmpleadoController extends Controller
         return redirect()->route('admin.empleados.index')
             ->with('mensaje','Se eliminó el registro de forma correcta')
             ->with('icono','success');
+    }
+
+    public function reportes()
+    {
+        return view('admin.empleados.reportes');
+    }
+
+    public function pdf()
+    {
+        $configuracion = Configuracione::latest()->first();
+        $empleados = Empleado::all();
+        $pdf = SnappyPdf::loadView('admin.empleados.pdf', compact('configuracion','empleados'))
+        ->setOption('footer-left', 'Impreso por: '.Auth::user()->email)  // Quien lo imprimio
+        ->setOption('footer-center', 'Página [page] de [topage]')  // Numeración de página
+        ->setOption('footer-right', 'Generado el: [date] - [time]')  // Fecha en el pie de página
+        ->setOption('footer-font-size', 8)  // Tamaño de la fuente del pie de página
+        ->setOption('footer-line', true)  // Línea separadora del pie de página
+        ->setOption('margin-bottom', '15mm');  // Espacio para el pie de página
+
+        return $pdf->inline('reporte.pdf');
     }
 }

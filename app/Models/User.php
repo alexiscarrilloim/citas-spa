@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -42,12 +43,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function secretarias(){
+    public function secretaria(){
         return $this->hasOne(Secretaria::class); #Relacion scretaria/usuario uno a uno
     }
 
-    public function empleados()
+    public function empleado()
     {
         return $this->hasOne(Empleado::class); #Relacion empleado/usuario uno a uno
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
     }
 }

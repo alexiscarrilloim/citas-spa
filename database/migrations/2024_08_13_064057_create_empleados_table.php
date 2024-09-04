@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
             $table->string('nombres');
-            $table->string('apellidos');
+            $table->string('apellidos'); 
             $table->string('telefono');
 
             $table->unsignedBigInteger('user_id');  //para el correo electronico

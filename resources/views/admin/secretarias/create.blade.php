@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
-        <h1>Registro de una nueva recepcionista</h1>
+        <h1>Registro de una nueva secretaria</h1>
     </div>
 
     <hr>
@@ -112,7 +112,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <a href="{{url('admin/secretarias')}}" class="btn btn-secondary"> Cancelar </a>
-                                    <button type="submit" class="btn btn-primary"> Registrar nuevo</buttonty>
+                                    <button type="submit" class="btn btn-primary">Registrar nuevo</buttont>
                                 </div>
                             </div>
                         </div>

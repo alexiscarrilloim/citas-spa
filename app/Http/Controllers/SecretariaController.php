@@ -24,7 +24,6 @@ class SecretariaController extends Controller
     public function create()
     {
         return view("admin.secretarias.create");
-
     }
 
     /**
@@ -58,6 +57,8 @@ class SecretariaController extends Controller
         $secretaria->celular = $request->celular;
         $secretaria->direccion = $request->direccion;
         $secretaria->save();
+
+        $usuario->assignRole('secretaria');
 
         return redirect()->route('admin.secretarias.index')
                 ->with('mensaje','Se registró a la secretaria de forma correcta')

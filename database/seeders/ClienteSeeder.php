@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
 class ClienteSeeder extends Seeder
 {
     /**
@@ -13,6 +14,8 @@ class ClienteSeeder extends Seeder
      */
     public function run(): void
     {
-        Cliente::factory()->count(50)->create();
+        Cliente::factory()->count(10)->create()->each(function($user) {
+            $user->assignRole('cliente');
+        });
     }
 }

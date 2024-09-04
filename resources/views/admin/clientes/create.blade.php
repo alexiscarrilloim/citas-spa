@@ -41,9 +41,9 @@
                         <br>
 
                         <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form group">
-                                    <label for="">Celular</label> <b style="color:#FF0000">*</b>
+                                    <label for="">Celular <b style="color:#FF0000">*</b> (10 digitos)</label> 
                                     <input type="text" value="{{old('celular')}}" name="celular" class="form-control" required>
                                     @error('celular')
                                         <small style="color:red">{{$message}}</small>
@@ -60,7 +60,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                         </div>
 
                         

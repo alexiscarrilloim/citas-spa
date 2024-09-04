@@ -34,6 +34,8 @@ class UsuarioController extends Controller
             $usuario->password = Hash::make( $request['password']);
             $usuario->save();
 
+            $usuario->assignRole('usuario');
+
             return redirect()->route('admin.usuarios.index')
                 ->with('mensaje','Se registró el usuario de forma correcta')
                 ->with('icono','success');

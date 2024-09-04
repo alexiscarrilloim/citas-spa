@@ -9,7 +9,7 @@ class Horario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['dia','hora_inicio','hora_fin','empleado_id','sucursal_id'];
+    protected $fillable = ['dia','hora_inicio','hora_fin','empleado_id','sucursal_id','servicio_id'];
 
     public function empleado(){
         return $this->belongsTo(Empleado::class);
@@ -18,4 +18,10 @@ class Horario extends Model
     public function sucursal(){
         return $this->belongsTo(Sucursal::class);
     }
+
+    public function servicio(){
+        return $this->belongsTo(Servicio::class);
+    }
+
+    
 }

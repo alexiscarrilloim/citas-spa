@@ -16,7 +16,7 @@ class Empleado extends Model
         return $this->belongsTo(Sucursal::class); //relacion empleado-sucursal, uno a uno
     }
 
-    public function horario()
+    public function horarios()
     {
         return $this->hasMany(Horario::class);  //relacion empleado-horario, uno a muchos
     }
@@ -26,5 +26,19 @@ class Empleado extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function servicios()
+    {
+        return $this->belongsToMany(Servicio::class, 'empleado_servicio');
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function historials()
+    {
+        return $this->hasMany(Historial::class);
+    }
 
 }

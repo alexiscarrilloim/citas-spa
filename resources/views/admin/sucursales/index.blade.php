@@ -31,7 +31,7 @@
                 </thead>
                 <tbody>
                     <?php $contador = 1 ?>
-                    @foreach ($sucursales as $sucursal)
+                    @foreach ($sucursals as $sucursal)
                     <tr>
                         <td style="text-align:center"><b>{{$contador++}}</b></td>
                         <td>{{$sucursal->nombre}}</td>

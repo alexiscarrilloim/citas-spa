@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
-        <h1>Listado de recepcionistas</h1>
+        <h1>Listado de secretarias</h1>
     </div>
     <hr>
 
@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Recepcionistas registradas</h3>
+                    <h3 class="card-title">Secretarias registradas</h3>
                     <div class="card-tools">
                         <a href="{{url('admin/secretarias/create')}}" class="btn btn-primary">
                             Registrar nueva
@@ -56,10 +56,10 @@
                         "pageLength": 10,
                         "language": {
                             "emptyTable": "No hay información",
-                            "info": "Mostrando _START_ a _END_ de _TOTAL_ de Recepcionistas",
-                            "infoEmpty": "Mostrando 0 a 0 de 0 Recepcionistas",
-                            "infoFiltered": "(Filtrado de _MAX_ total de Recepcionistas)",
-                            "lengthMenu": "Mostrar _MENU_ de Recepcionistas",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ de Secretarias",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Secretarias",
+                            "infoFiltered": "(Filtrado de _MAX_ total de Secretarias)",
+                            "lengthMenu": "Mostrar _MENU_ de Secretarias",
                             "loadingRecords": "Cargando...",
                             "processing": "Procesando...",
                             "search": "Buscador:",

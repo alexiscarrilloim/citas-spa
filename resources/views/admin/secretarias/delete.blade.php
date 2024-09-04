@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row">
-        <h1>Eliminar recepcionista: {{$secretaria->nombres}} {{$secretaria->apellidos}}</h1>
+        <h1>Eliminar secretaria: {{$secretaria->nombres}} {{$secretaria->apellidos}}</h1>
     </div>
 
     <hr>

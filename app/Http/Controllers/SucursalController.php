@@ -12,8 +12,8 @@ class SucursalController extends Controller
      */
     public function index()
     {
-        $sucursales = Sucursal::all();
-        return view("admin.sucursales.index", compact("sucursales"));
+        $sucursals = Sucursal::all();
+        return view("admin.sucursales.index", compact("sucursals"));
     }
 
     /**
@@ -99,5 +99,11 @@ class SucursalController extends Controller
         return redirect()->route('admin.sucursales.index')
                 ->with('mensaje','Se eliminó la sucursal de forma correcta')
                 ->with('icono','success');
+    }
+
+
+    public function asignarServicioSucursal(Request $request, Sucursal $sucursal)
+    {
+        $sucursal->servicios()->sync($request->servicio_id);
     }
 }
